@@ -17,6 +17,31 @@ const MockData = [
 class NiceTable extends Component {
     constructor() {
         super();
+        this.cyce = [
+            {
+                name: 'Mark',
+                last: 'Otto',
+                user: 'somewhere@gmail.com'
+            },
+
+            {
+                name: 'Ash',
+                last: 'somewhere@gmail.com',
+                user: 'somewhere@gmail.com'
+            }];
+    }
+    dejdane() {
+        let list = [];
+        for (let i = 0; i < 100; i++) {
+            let pers = {
+                name: 'Mark',
+                last: 'Otto',
+                user: 'somewhere@gmail.com'
+            }
+            list.push(pers);
+        }
+
+        return list;
     }
 
     render() {
@@ -57,6 +82,10 @@ class NiceTable extends Component {
                                 </thead>
                                 <tbody>
                                     {MockData.map((p, index) => {
+                                        return (
+                                            <TableRow index={index} name={p.name} last={p.last} user={p.user} />);
+                                    })}
+                                    {this.dejdane().map((p, index) => {
                                         return (
                                             <TableRow index={index} name={p.name} last={p.last} user={p.user} />);
                                     })}
